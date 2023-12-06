@@ -51,8 +51,6 @@ const changeeverythingcolor = () => {
 }
 button3.addEventListener("click",changeeverythingcolor);
 
-
-
 const changeAllColor = () => {
     const addFirstColor = localStorage.getItem('colorFullFirst');
     if(addFirstColor){

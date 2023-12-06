@@ -10,7 +10,6 @@ let btnDecrement = document.querySelector('#decrement');
 let btnReset = document.querySelector('#reset');
 let btnIncrement = document.querySelector('#increment');
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const savedValue = localStorage.getItem('save');
     if (savedValue !== null) {
@@ -19,19 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-
-
-
-
 btnDecrement.addEventListener('click',() =>{
-    curValue++ ;
+    curValue++;
     mainTitle.textContent =curValue ;
     addLocalStorage()
 });
 
 btnIncrement.addEventListener('click',() =>{
-    curValue-- ;
+    curValue--;
     mainTitle.textContent =curValue ;
     addLocalStorage() 
 });

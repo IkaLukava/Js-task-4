@@ -1,20 +1,20 @@
-console.log("random movement of the square");
-
 const square = document.querySelector(".square");
 const container = document.querySelector(".container");
 
-function getRandomPosition() {
+const getRandomPosition = () => {
     const randomWidth = `${Math.floor(Math.random() * (container.offsetWidth - 10))}px`;
     const randomHeight = `${Math.floor(Math.random() * (container.offsetHeight - 10))}px`;
     return { left: randomWidth, top: randomHeight };
 }
+
 const storedPosition = localStorage.getItem("squarePosition");
 if (storedPosition) {
     const [storedLeft, storedTop] = storedPosition.split(",");
     square.style.left = storedLeft;
     square.style.top = storedTop;
 }
-square.addEventListener("click", function () {
+
+square.addEventListener("click", () => {
     const { left, top } = getRandomPosition();
 
     square.style.left = left;
