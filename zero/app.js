@@ -2,7 +2,7 @@ const btnClear = document.querySelector('#reset');
 const inputs = document.querySelectorAll('input');
 
 btnClear.addEventListener('click',()=>{
-    inputs.forEach(input=>input.value)
+    inputs.forEach(input=>input.value);
 })
 let mainTitle = document.querySelector('#h');
 let curValue = 0 ;
@@ -21,23 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
 btnDecrement.addEventListener('click',() =>{
     curValue++;
     mainTitle.textContent =curValue ;
-    addLocalStorage()
+    addLocalStorage();
 });
 
 btnIncrement.addEventListener('click',() =>{
     curValue--;
     mainTitle.textContent =curValue ;
-    addLocalStorage() 
+    addLocalStorage();
 });
  
 btnReset.addEventListener('click',() =>{
     curValue = 0 ;
     mainTitle.textContent =curValue ;
-    addLocalStorage()  
+    addLocalStorage();  
 });
 
-function addLocalStorage() {
-    // Save the current value to local storage
+const addLocalStorage= () =>{
     localStorage.setItem("save", curValue);
 }
 

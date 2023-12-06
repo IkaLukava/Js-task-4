@@ -23,7 +23,7 @@ staybackcolor();
 const button2 = document.getElementById("button");
 
 const changebuttoncolor = () => {
-    const hexVal = Math.floor(Math.random() * 0xffffff).toString(16);
+    const hexVal = Math.floor(Math.random() * 0xffffff).toString(15);
     button2.style.backgroundColor=`#${hexVal}`;
     localStorage.setItem('buttonColor',hexVal);
 }
@@ -42,20 +42,29 @@ changeonlybuttonColor();
 const button3 = document.getElementById("changeeverything");
 
 const changeeverythingcolor = () => {
-    const hexVal =Math.floor(Math.random() * 0xffffff).toString(16);
-    const anotherColor = Math.floor(Math.random() * 0xffffff).toString(16);
-    document.body.style.background = `#${hexVal}`;
-    button3.style.backgroundColor= `#${anotherColor}`;
-    localStorage.setItem('colorFullFirst',hexVal,anotherColor)
-    // localStorage.setItem('colorFullSecond',)
+    const bodyColor = Math.floor(Math.random() * 0xffffff).toString(16);
+    const buttonColor = Math.floor(Math.random() * 0xffffff).toString(16);
+    
+    document.body.style.background = `#${bodyColor}`;
+    button3.style.backgroundColor = `#${buttonColor}`;
+    
+    // Store both colors in localStorage
+    localStorage.setItem('bodyColor', bodyColor);
+    localStorage.setItem('buttonColor', buttonColor);
 }
-button3.addEventListener("click",changeeverythingcolor);
+
+button3.addEventListener("click", changeeverythingcolor);
 
 const changeAllColor = () => {
-    const addFirstColor = localStorage.getItem('colorFullFirst');
-    if(addFirstColor){
-        document.body.style.background = `#${addFirstColor}`;
-        button3.style.backgroundColor = `#${addFirstColor}`;
+    const changeBodyColor = localStorage.getItem('bodyColor');
+    const changeButtonColor = localStorage.getItem('buttonColor');
+
+    if (changeBodyColor) {
+        document.body.style.background = `#${changeBodyColor}`;
+    }
+    if (changeButtonColor) {
+        button3.style.backgroundColor = `#${changeButtonColor}`;
     }
 }
-changeeverythingcolor();
+
+changeAllColor();
